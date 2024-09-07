@@ -133,3 +133,14 @@ const getWeatherByCoords = async (latitude, longitude) => {
     // Add the city to the recent cities dropdown
     addCityToDropdown(cityName);
 };
+
+// Save recently searched cities to local storage and update the dropdown menu
+const addCityToDropdown = (cityName) => {
+    let recentCities = JSON.parse(localStorage.getItem("recentCities")) || [];
+    // Avoid duplicate entries in recent cities list
+    if (!recentCities.includes(cityName)) {
+        recentCities.push(cityName);
+        localStorage.setItem("recentCities", JSON.stringify(recentCities));
+    }
+    updateDropdown();
+};
