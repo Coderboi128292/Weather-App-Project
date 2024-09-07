@@ -202,3 +202,6 @@ currentLocationButton.addEventListener("click", () => {
         alert("Geolocation is not supported by your browser.");
     }
 });
+
+// Initialize the dropdown menu with recently searched cities when the page loads
+updateDropdown();
