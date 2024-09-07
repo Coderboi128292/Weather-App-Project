@@ -44,3 +44,16 @@ const createWeatherCard = (cityName, weatherData, isMainCard) => {
             <h2 class="font-medium">Humidity: ${humidity}%</h2>
         </li>`;
 };
+
+// Validate if the city name exists using the Geocoding API
+const validateCity = async (cityName) => {
+    const GEO_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`;
+    const response = await fetch(GEO_API_URL);
+    const data = await response.json();
+    // Check if the city name is valid
+    if (data.length > 0 && data[0].name.toLowerCase() === cityName.toLowerCase()) {
+        return data[0].name;
+    }
+    throw new Error("City not found");
+};
+
