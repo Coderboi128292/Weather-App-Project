@@ -185,3 +185,20 @@ searchButton.addEventListener("click", async () => {
         alert("Please enter a city name.");
     }
 });
+
+// Fetch and display weather data based on user's current geolocation
+currentLocationButton.addEventListener("click", () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+                getWeatherByCoords(latitude, longitude);
+            },
+            (error) => {
+                alert("Unable to retrieve your location. Please check your location settings.");
+            }
+        );
+    } else {
+        alert("Geolocation is not supported by your browser.");
+    }
+});
