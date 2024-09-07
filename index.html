@@ -12,3 +12,20 @@
     <header class="bg-gradient-to-r from-blue-500 to-green-600 text-center py-6 text-white shadow-lg">
         <h1 class="text-4xl font-bold">Weather App</h1>
     </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-8">
+        <!-- City Input Section -->
+        <div class="weather-data-input max-w-md mx-auto mb-8">
+            <h3 class="text-lg font-semibold text-gray-700">Enter City Name</h3>
+            <input class="city-data-input h-12 w-full mt-2 px-4 text-lg border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder="E.g: London, Mumbai, Paris " />
+            <button class="search-button w-full mt-4 py-3 bg-blue-600 text-white text-lg rounded-lg shadow-md hover:bg-green-600 transition duration-200">Search</button>
+
+            <!-- Separator Between City Input and Location Button -->
+            <div class="my-8 text-center relative">
+                <span class="bg-gray-100 px-4 text-lg text-gray-600">or</span>
+                <div class="h-px bg-gray-300 mt-1"></div>
+            </div>
+
+            <!-- Button to Get Weather by Current Location -->
+            <button class="current-location-button w-full py-3 bg-gray-600 text-white text-lg rounded-lg shadow-md hover:bg-gray-700 transition duration-200">Use Current Location</button>
