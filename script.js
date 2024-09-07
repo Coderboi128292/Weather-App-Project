@@ -170,3 +170,18 @@ recentCitiesDropdown.addEventListener("change", () => {
         getWeatherDetails(recentCitiesDropdown.value);
     }
 });
+
+// Fetch and display weather data based on user-entered city name
+searchButton.addEventListener("click", async () => {
+    const cityName = cityDataInput.value.trim();
+    if (cityName) {
+        try {
+            const validCityName = await validateCity(cityName);
+            await getWeatherDetails(validCityName);
+        } catch (error) {
+            alert(error.message);
+        }
+    } else {
+        alert("Please enter a city name.");
+    }
+});
