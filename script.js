@@ -57,3 +57,40 @@ const validateCity = async (cityName) => {
     throw new Error("City not found");
 };
 
+// Retrieve and display weather data for a given city name
+const getWeatherDetails = async (cityName) => {
+    const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${API_KEY}`;
+    const response = await fetch(WEATHER_API_URL);
+    const data = await response.json();
+
+    // Handle error if the weather data is not found
+    if (data.cod !== "200") {
+        throw new Error("Weather data not found for the specified location.");
+    }
+
+    const forecastDays = [];
+    const filteredForecast = data.list.filter((item) => {
+        const forecastDate = new Date(item.dt_txt).getDate();
+        // Filter out duplicate forecast days
+        if (!forecastDays.includes(forecastDate)) {
+            forecastDays.push(forecastDate);
+            return true;
+        }
+        return false;
+    });
+
+    // Clear previous weather data
+    currentWeatherData.innerHTML = '';
+    weatherForecastCards.innerHTML = '';
+
+    // Display the main weather card
+    currentWeatherData.innerHTML = createWeatherCard(cityName, filteredForecast[0], true);
+
+    // Display the forecast weather cards
+    filteredForecast.slice(1).forEach((forecast) => {
+        weatherForecastCards.innerHTML += createWeatherCard(cityName, forecast, false);
+    });
+
+    // Add the city to the recent cities dropdown
+    addCityToDropdown(cityName);
+};
