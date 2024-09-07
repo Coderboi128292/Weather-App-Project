@@ -37,3 +37,36 @@
                 </select>
             </div>
         </div>
+
+        <!-- Weather Information Display Section -->
+        <div id="weather-info-data">
+            <!-- Current Weather Section -->
+            <div class="current-weather-data bg-gradient-to-r from-blue-500 to-green-600 text-white rounded-lg p-6 shadow-lg flex justify-between items-center mb-8">
+                <div class="weather-details">
+                    <h1 class="text-sm xl:text-2xl font-bold">_______ ( ______ )</h1>
+                    <p class="mt-4 text-sm xl:text-lg">Temperature: __°C</p>
+                    <p class="text-sm xl:text-lg">Wind Speed: __ M/S</p>
+                    <p class="text-sm xl:text-lg">Humidity: __%</p>
+                </div>
+                <div class="weather-image text-center">
+                    <img class="max-w-[100px]" src="#" alt="Weather Image" />
+                    <p class="mt-2 capitalize xl:text-lg">Condition</p>
+                </div>
+            </div>
+
+            <!-- 5-Day Forecast Section -->
+            <div id="days-forecast-data">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-5">Upcoming 5-Day Forecast</h2>
+                <ul class="weather-forecast-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                    <li class="card bg-blue-500 text-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold">( ______ )</h3>
+                        <p class="mt-2">Temperature: __C</p>
+                        <p>Wind Speed: __ M/S</p>
+                        <p>Humidity: __%</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
